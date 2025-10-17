@@ -86,9 +86,11 @@ export function InviteSearch({eventId}: InviteSearchProps) {
                     {result.found && result.invitee ? (
                         <div className="space-y-4">
                             <div className="flex items-start gap-3">
-                                <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1"/>
                                 <div className="flex-1 space-y-2">
-                                    <h3 className="font-serif text-xl text-primary">Invitation Found!</h3>
+                                    <h3 className="font-serif text-xl text-primary
+                                     flex items-center gap-2 justify-center
+                                    ">                                <CheckCircle className="w-6 h-6 text-green-600 inline mt-1"/>
+                                        Invitation Found</h3>
                                     <p className="text-muted-foreground">
                                         Welcome, <span
                                         className="font-semibold text-foreground">{result.invitee.name}</span>
