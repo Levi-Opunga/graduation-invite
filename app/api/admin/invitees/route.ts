@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { getSession } from "@/lib/auth/session"
-import { createInvitee, getEventById } from "@/lib/db/queries"
+import { createInvitee, getEventById,deleteInvitee,getInviteeByToken } from "@/lib/db/queries"
 import { generateUniqueToken } from "@/lib/utils/token"
 import { sendInvitationEmail } from "@/lib/email/send"
 
@@ -60,4 +60,49 @@ export async function POST(request: NextRequest) {
     console.error("[v0] Create invitee API error:", error)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })
   }
+}
+
+export async function GET(request: NextRequest) {
+    try {
+        const session = await getSession()
+        const searchParams = request.nextUrl.searchParams
+        const uniqueToken = searchParams.get("uniqueToken")
+        if (!uniqueToken) {
+            return NextResponse.json({ error: "Missing uniqueToken" }, { status: 400 })
+        }
+
+        const invitee = await getInviteeByToken(uniqueToken)
+        return NextResponse.json(
+            {
+                success: true,
+                invitee
+            },
+        )
+
+    } catch (error) {
+        console.error("[v0] Get invitees API error:", error)
+        return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    }
+}
+
+export async function DELETE(request: NextRequest) {
+    try {
+        const session = await getSession()
+        const searchParams = request.nextUrl.searchParams
+        const uniqueToken = searchParams.get("uniqueToken")
+        if (!uniqueToken) {
+            return NextResponse.json({ error: "Missing uniqueToken" }, { status: 400 })
+        }
+
+        const invitee = await deleteInvitee(uniqueToken)
+        return NextResponse.json(
+            {
+                success: true,
+                invitee
+            },
+        )
+    } catch (error) {
+        console.error("[v0] Delete invitee API error:", error)
+        return NextResponse.json({ error: "Internal server error" }, { status: 500 })
+    }
 }

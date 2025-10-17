@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { getInviteeByToken } from "@/lib/db/queries"
+import {getInviteeByToken, getRsvpByInviteeId} from "@/lib/db/queries"
 import { getEventById } from "@/lib/db/queries"
 import { InvitationView } from "@/components/invitation-view"
 
@@ -26,5 +26,7 @@ export default async function InvitePage({ params }: InvitePageProps) {
     notFound()
   }
 
-  return <InvitationView invitee={invitee} event={event} />
+  const rsvp = await getRsvpByInviteeId(invitee.id)
+
+  return <InvitationView invitee={invitee} event={event} rsvp={rsvp}/>
 }
