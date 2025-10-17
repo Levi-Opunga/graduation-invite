@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
 import { ArrowLeft, Plus, Copy, Mail } from "lucide-react"
 import Link from "next/link"
+import {toast} from "sonner";
 
 interface Event {
   id: string
@@ -133,11 +134,44 @@ export function InviteesManager({ event, invitees: initialInvitees }: InviteesMa
 
   const copyInviteLink = (token: string) => {
     const url = `${window.location.origin}/invite/${token}`
-    navigator.clipboard.writeText(url)
-    alert("Invite link copied to clipboard!")
+    navigator.clipboard.writeText(url).then(() => {
+        toast.success("Invite link copied to clipboard")
+  })
   }
 
-  return (
+    const copyWhatsappInvite = (invitee: Invitee, event: { date: string; time: string; location: string }) => {
+        const url = `${window.location.origin}/invite/${invitee.id}`;
+
+        // Format date in a friendly Kenyan style: "Saturday, 17th October 2025"
+        const eventDate = new Date(event.date).toLocaleDateString("en-KE", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+        });
+
+        const template = `
+Hey ${invitee.name}! 
+
+I’m excited to invite you to my graduation dinner! 🎓
+📅 Date: ${eventDate}  
+🕒 Time: ${event.time}  
+📍 Venue: ${event.location}
+
+Kindly confirm your attendance through the link below 👇  
+${url}
+
+You can also use the same link later to update your RSVP.  
+Looking forward to celebrating together! 🥳
+  `.trim();
+
+        navigator.clipboard.writeText(template).then(() => {
+            toast.success("WhatsApp invite message copied to clipboard!");
+        });
+    };
+
+
+    return (
     <div className="min-h-screen bg-background dark">
       <header className="border-b bg-card">
         <div className="max-w-7xl mx-auto px-4 py-4">
@@ -249,6 +283,9 @@ export function InviteesManager({ event, invitees: initialInvitees }: InviteesMa
                     </div>
 
                     <div className="flex gap-2">
+                        <Button size="sm" variant="outline" onClick={() => copyWhatsappInvite(invitee,event)}>
+                            Copy Whatsapp Invite
+                        </Button>
                       <Button size="sm" variant="outline" onClick={() => copyInviteLink(invitee.uniqueToken)}>
                         <Copy className="w-4 h-4 mr-2" />
                         Copy Link

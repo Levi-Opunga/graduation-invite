@@ -5,7 +5,8 @@ VALUES (
   '2025-06-15',
   '10:00 AM',
   'Upepo Restaurant, Kwetu Nairobi, Curio Collection by Hilton',
-  'Join us in celebrating the graduation of the Class of 2025 from the Computer Science Department.',
+  'I’m so excited to let you know that I’ll be graduating this year! 
+It’s been a long journey, and I’d love to have you there to celebrate this special moment with me.',
   '#1a2f4a',
   '#22d3ee',
   '/uploads/squares.png'
