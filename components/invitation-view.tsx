@@ -224,21 +224,22 @@ export function InvitationView({invitee, event, rsvp}: InvitationViewProps) {
                     {/* Subtle Accent Glow */}
                     <div
                         className="absolute top-0 right-0 w-64 h-64 -mt-32 rounded-full blur-3xl opacity-5"
-                        style={{ background: accentColor }}
+                        style={{background: accentColor}}
                     />
 
                     {/* Event Details */}
                     <div className="z-10 grid grid-cols-1 sm:grid-cols-2 gap-8">
                         {/* Date */}
-                        <div className="flex items-start gap-5 group hover:translate-x-2 transition-transform duration-300">
+                        <div
+                            className="flex items-start gap-5 group hover:translate-x-2 transition-transform duration-300">
                             <div
                                 className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
-                                style={{ backgroundColor: `${accentColor}15` }}
+                                style={{backgroundColor: `${accentColor}15`}}
                             >
-                                <Calendar className="w-6 h-6" style={{ color: accentColor }} />
+                                <Calendar className="w-6 h-6" style={{color: accentColor}}/>
                             </div>
                             <div className="flex-1">
-                                <p className="font-semibold text-lg mb-1" style={{ color: primaryColor }}>
+                                <p className="font-semibold text-lg mb-1" style={{color: primaryColor}}>
                                     Date
                                 </p>
                                 <p className="text-slate-600 text-lg">{formattedDate}</p>
@@ -246,15 +247,16 @@ export function InvitationView({invitee, event, rsvp}: InvitationViewProps) {
                         </div>
 
                         {/* Time */}
-                        <div className="flex items-start gap-5 group hover:translate-x-2 transition-transform duration-300">
+                        <div
+                            className="flex items-start gap-5 group hover:translate-x-2 transition-transform duration-300">
                             <div
                                 className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
-                                style={{ backgroundColor: `${accentColor}15` }}
+                                style={{backgroundColor: `${accentColor}15`}}
                             >
-                                <Clock className="w-6 h-6" style={{ color: accentColor }} />
+                                <Clock className="w-6 h-6" style={{color: accentColor}}/>
                             </div>
                             <div className="flex-1">
-                                <p className="font-semibold text-lg mb-1" style={{ color: primaryColor }}>
+                                <p className="font-semibold text-lg mb-1" style={{color: primaryColor}}>
                                     Time
                                 </p>
                                 <p className="text-slate-600 text-lg">{event.time}</p>
@@ -262,15 +264,16 @@ export function InvitationView({invitee, event, rsvp}: InvitationViewProps) {
                         </div>
 
                         {/* Location (full width on mobile, half on larger screens) */}
-                        <div className="flex items-start gap-5 group hover:translate-x-2 transition-transform duration-300 sm:col-span-2">
+                        <div
+                            className="flex items-start gap-5 group hover:translate-x-2 transition-transform duration-300 sm:col-span-2">
                             <div
                                 className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
-                                style={{ backgroundColor: `${accentColor}15` }}
+                                style={{backgroundColor: `${accentColor}15`}}
                             >
-                                <MapPin className="w-6 h-6" style={{ color: accentColor }} />
+                                <MapPin className="w-6 h-6" style={{color: accentColor}}/>
                             </div>
                             <div className="flex-1">
-                                <p className="font-semibold text-lg mb-1" style={{ color: primaryColor }}>
+                                <p className="font-semibold text-lg mb-1" style={{color: primaryColor}}>
                                     Location
                                 </p>
                                 <p className="text-slate-600 text-lg">{event.location}</p>
@@ -281,7 +284,10 @@ export function InvitationView({invitee, event, rsvp}: InvitationViewProps) {
                     {/* Description */}
                     {event.description && (
                         <div className="relative z-10 pt-8 border-t border-slate-200">
-                            <p className="text-slate-600 leading-relaxed text-lg">{event.description}</p>
+                            <pre
+                                className="text-lg md:text-lg text-slate-600 text-pretty  leading-relaxed relative z-10 font-sans">
+                {event.description}
+              </pre>
                         </div>
                     )}
                 </Card>
@@ -303,20 +309,20 @@ export function InvitationView({invitee, event, rsvp}: InvitationViewProps) {
                         <div className="space-y-8">
                             {/* --- Attendance Radio --- */}
                             <div className="space-y-4">
-                                <Label className="text-base font-semibold" style={{ color: primaryColor }}>
+                                <Label className="text-base font-semibold" style={{color: primaryColor}}>
                                     Will you be attending?
                                 </Label>
 
                                 <RadioGroup
                                     value={formData.status}
-                                    onValueChange={(value) => setFormData((prev) => ({ ...prev, status: value }))}
+                                    onValueChange={(value) => setFormData((prev) => ({...prev, status: value}))}
                                     className="space-y-3"
                                 >
                                     {[
-                                        { value: "attending", label: "Yes, I will attend" },
-                                        { value: "not_attending", label: "No, I cannot attend" },
-                                        { value: "maybe", label: "Maybe" },
-                                    ].map(({ value, label }) => (
+                                        {value: "attending", label: "Yes, I will attend"},
+                                        {value: "not_attending", label: "No, I cannot attend"},
+                                        {value: "maybe", label: "Maybe"},
+                                    ].map(({value, label}) => (
                                         <Label
                                             key={value}
                                             className={`flex items-center space-x-3 p-4 rounded-2xl border-2 transition-colors cursor-pointer ${
@@ -327,8 +333,9 @@ export function InvitationView({invitee, event, rsvp}: InvitationViewProps) {
                                             }}
                                             htmlFor={value}
                                         >
-                                            <RadioGroupItem value={value} id={value} />
-                                            <Label htmlFor={value} className="font-normal cursor-pointer text-base flex-1">
+                                            <RadioGroupItem value={value} id={value}/>
+                                            <Label htmlFor={value}
+                                                   className="font-normal cursor-pointer text-base flex-1">
                                                 {label}
                                             </Label>
                                         </Label>
@@ -336,7 +343,7 @@ export function InvitationView({invitee, event, rsvp}: InvitationViewProps) {
                                 </RadioGroup>
 
                             </div>
-                            {(formData.status === "attending"  || formData.status === "maybe") && (
+                            {(formData.status === "attending" || formData.status === "maybe") && (
                                 <>
                                     <input type="hidden" value={1}/>
 

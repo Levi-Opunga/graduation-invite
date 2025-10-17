@@ -84,11 +84,11 @@ export default async function HomePage() {
           {/* Event Description with enhanced styling */}
           {event.description && (
             <div className="relative">
-              <div className="absolute -left-8 top-0 text-8xl font-serif opacity-5" style={{ color: primaryColor }}>"</div>
-              <p className="text-xl md:text-xl text-slate-600 text-pretty max-w-3xl mx-auto leading-relaxed relative z-10">
+              <div className="absolute -left-8 top-0 text-8xl font-serif opacity-50" style={{ color: accentColor }}>"</div>
+              <pre className="text-xl md:text-xl text-slate-600 text-pretty max-w-3xl mx-auto leading-relaxed relative z-10 font-sans">
                 {event.description}
-              </p>
-              <div className="absolute -right-8 bottom-0 text-8xl font-serif opacity-5" style={{ color: primaryColor }}>"</div>
+              </pre>
+              <div className="absolute -right-8 bottom-0 text-8xl font-serif opacity-50" style={{ color: accentColor }}>"</div>
             </div>
           )}
 
