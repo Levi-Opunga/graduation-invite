@@ -189,7 +189,7 @@ export default async function HomePage() {
                   <h2 className="font-serif text-2xl md:text-3xl tracking-tight" style={{ color: primaryColor }}>
                     Check Your Invitation
                   </h2>
-                  <p className="text-slate-600 ">Enter your name to find your personalized invitation</p>
+                  <p className="text-slate-600 ">Enter your invite code to find your personalized invitation</p>
                 </div>
 
                 <div className="relative z-10">
