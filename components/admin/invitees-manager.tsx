@@ -164,7 +164,8 @@ I’m excited to invite you to my graduation dinner! 🎓
 Kindly confirm your attendance through the link below 👇  
 ${url}
 
-You can also use the same link later to update your RSVP.  
+You can also use the same link later to update your RSVP or search using the code below.      
+Code: ${invitee.uniqueToken}
 Looking forward to celebrating together! 🥳
   `.trim();
 
