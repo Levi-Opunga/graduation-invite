@@ -164,11 +164,6 @@ Dear ${invitee.name}
 
 I’m excited to invite you to my graduation dinner! 🎓
 
-Date: ${eventDate}  
-Time: ${event.time}  
-Venue: ${event.location}
-Map: https://maps.app.goo.gl/66LZTfyeXnqhPHJQ9
-
 Kindly confirm your attendance through the link below or via message. 👇  
 ${url}
 
@@ -177,6 +172,11 @@ You can use the same link later to update your RSVP or search using the code bel
 Code: ${invitee.uniqueToken}
 
 Please confirm your attendance by ${confirmDate} for planning logistics.
+
+Date: ${eventDate}  
+Time: ${event.time}  
+Venue: ${event.location}
+Map: https://maps.app.goo.gl/66LZTfyeXnqhPHJQ9
 
 Looking forward to celebrating together! 🥳
   `.trim();
