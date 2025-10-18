@@ -163,16 +163,20 @@ export function InviteesManager({event, invitees: initialInvitees}: InviteesMana
 Dear ${invitee.name}
 
 I’m excited to invite you to my graduation dinner! 🎓
-📅 Date: ${eventDate}  
-🕒 Time: ${event.time}  
-📍 Venue: ${event.location}
+
+Date: ${eventDate}  
+Time: ${event.time}  
+Venue: ${event.location}
 
 Kindly confirm your attendance through the link below or via message. 👇  
 ${url}
 
-You can use the same link later to update your RSVP or search using the code below.      
+You can use the same link later to update your RSVP or search using the code below.  
+    
 Code: ${invitee.uniqueToken}
+
 Please confirm your attendance by ${confirmDate} to avoid any inconvenience.
+
 Looking forward to celebrating together! 🥳
   `.trim();
 
