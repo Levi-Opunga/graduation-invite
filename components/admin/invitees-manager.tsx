@@ -160,7 +160,7 @@ export function InviteesManager({event, invitees: initialInvitees}: InviteesMana
         });
 
         const template = `
-Hey ${invitee.name}! 
+Dear ${invitee.name}
 
 I’m excited to invite you to my graduation dinner! 🎓
 📅 Date: ${eventDate}  
