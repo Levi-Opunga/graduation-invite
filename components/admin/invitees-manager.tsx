@@ -152,6 +152,12 @@ export function InviteesManager({event, invitees: initialInvitees}: InviteesMana
             month: "long",
             year: "numeric",
         });
+        const confirmDate = new Date("2025-10-25").toLocaleDateString("en-GB", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+        });
 
         const template = `
 Hey ${invitee.name}! 
@@ -161,11 +167,12 @@ I’m excited to invite you to my graduation dinner! 🎓
 🕒 Time: ${event.time}  
 📍 Venue: ${event.location}
 
-Kindly confirm your attendance through the link below 👇  
+Kindly confirm your attendance through the link below or via message. 👇  
 ${url}
 
-You can also use the same link later to update your RSVP or search using the code below.      
+You can use the same link later to update your RSVP or search using the code below.      
 Code: ${invitee.uniqueToken}
+Please confirm your attendance by ${confirmDate} to avoid any inconvenience.
 Looking forward to celebrating together! 🥳
   `.trim();
 
