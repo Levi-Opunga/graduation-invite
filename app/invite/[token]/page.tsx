@@ -15,7 +15,7 @@ export const generateMetadata = async ({ params }: { params: { token: string } }
         openGraph: {
             title: `${name} — Levi’s Graduation Party 🎓`,
             description: "Join me in celebrating this special milestone! Click to RSVP.",
-            url: `https://grad.codekxlabs.com/invite/${params.id}`,
+            url: `https://grad.codekxlabs.com/invite/${params.token}`,
             siteName: "Levi’s Graduation Party 🎓",
             images: [
                 {
