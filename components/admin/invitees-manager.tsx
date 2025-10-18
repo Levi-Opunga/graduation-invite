@@ -171,7 +171,7 @@ Venue: ${event.location}
 Kindly confirm your attendance through the link below or via message. 👇  
 ${url}
 
-You can use the same link later to update your RSVP or search using the code below.  
+You can use the same link later to update your RSVP or search using the code below on the home page.  
     
 Code: ${invitee.uniqueToken}
 
