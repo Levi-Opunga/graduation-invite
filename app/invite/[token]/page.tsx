@@ -5,8 +5,8 @@ import { InvitationView } from "@/components/invitation-view"
 
 import { Metadata } from "next"
 
-export const generateMetadata = async ({ params }: { params: { id: string } }): Promise<Metadata> => {
-    const invitee = await getInviteeByToken(params.id) // fetch invitee if you have API
+export const generateMetadata = async ({ params }: { params: { token: string } }): Promise<Metadata> => {
+    const invitee = await getInviteeByToken(params.token) // fetch invitee if you have API
     const name = invitee?.name || "My Graduation Party 🎓"
 
     return {
