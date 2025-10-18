@@ -152,7 +152,7 @@ export function InviteesManager({event, invitees: initialInvitees}: InviteesMana
             month: "long",
             year: "numeric",
         });
-        const confirmDate = new Date("2025-10-25").toLocaleDateString("en-GB", {
+        const confirmDate = new Date("2025-10-25").toLocaleDateString("en-KE", {
             weekday: "long",
             day: "numeric",
             month: "long",
@@ -167,6 +167,7 @@ I’m excited to invite you to my graduation dinner! 🎓
 Date: ${eventDate}  
 Time: ${event.time}  
 Venue: ${event.location}
+Map: https://maps.app.goo.gl/66LZTfyeXnqhPHJQ9
 
 Kindly confirm your attendance through the link below or via message. 👇  
 ${url}
@@ -175,7 +176,7 @@ You can use the same link later to update your RSVP or search using the code bel
     
 Code: ${invitee.uniqueToken}
 
-Please confirm your attendance by ${confirmDate} to avoid any inconvenience.
+Please confirm your attendance by ${confirmDate} for planning logistics.
 
 Looking forward to celebrating together! 🥳
   `.trim();
